@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("/assets/fonts/JetBrainsMono.woff2") format("woff2");
+}
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --radius: 0.75rem;
+
+    --background: 0.985 0.008 255;
+    --foreground: 0.22 0.04 262;
+
+    --card: 1 0 0;
+    --card-foreground: 0.22 0.04 262;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.22 0.04 262;
+
+    --primary: 0.55 0.2 258;
+    --primary-foreground: 0.99 0 0;
+
+    --secondary: 0.955 0.02 255;
+    --secondary-foreground: 0.3 0.06 262;
+
+    --muted: 0.955 0.02 255;
+    --muted-foreground: 0.52 0.03 262;
+
+    --accent: 0.55 0.22 296;
+    --accent-foreground: 0.99 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+
+    --border: 0.9 0.02 255;
+    --input: 0.9 0.02 255;
+    --ring: 0.55 0.2 258;
+
+    --chart-1: 0.55 0.2 258;
+    --chart-2: 0.55 0.22 296;
+    --chart-3: 0.65 0.18 230;
+    --chart-4: 0.7 0.16 320;
+    --chart-5: 0.6 0.2 285;
+
+    --sidebar: 0.985 0.008 255;
+    --sidebar-foreground: 0.22 0.04 262;
+    --sidebar-primary: 0.55 0.2 258;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.94 0.03 258;
+    --sidebar-accent-foreground: 0.3 0.06 262;
+    --sidebar-border: 0.9 0.02 255;
+    --sidebar-ring: 0.55 0.2 258;
+  }
+
+  .dark {
+    --background: 0.16 0.035 262;
+    --foreground: 0.95 0.01 255;
+
+    --card: 0.2 0.035 262;
+    --card-foreground: 0.95 0.01 255;
+
+    --popover: 0.2 0.035 262;
+    --popover-foreground: 0.95 0.01 255;
+
+    --primary: 0.65 0.19 258;
+    --primary-foreground: 0.16 0.035 262;
+
+    --secondary: 0.24 0.035 262;
+    --secondary-foreground: 0.9 0.01 255;
+
+    --muted: 0.24 0.035 262;
+    --muted-foreground: 0.62 0.02 262;
+
+    --accent: 0.65 0.22 296;
+    --accent-foreground: 0.16 0.035 262;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.16 0.035 262;
+
+    --border: 0.3 0.03 262;
+    --input: 0.3 0.03 262;
+    --ring: 0.65 0.19 258;
+
+    --chart-1: 0.65 0.19 258;
+    --chart-2: 0.65 0.22 296;
+    --chart-3: 0.7 0.18 230;
+    --chart-4: 0.72 0.16 320;
+    --chart-5: 0.68 0.2 285;
+
+    --sidebar: 0.18 0.035 262;
+    --sidebar-foreground: 0.95 0.01 255;
+    --sidebar-primary: 0.65 0.19 258;
+    --sidebar-primary-foreground: 0.16 0.035 262;
+    --sidebar-accent: 0.24 0.035 262;
+    --sidebar-accent-foreground: 0.9 0.01 255;
+    --sidebar-border: 0.3 0.03 262;
+    --sidebar-ring: 0.65 0.19 258;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    color-scheme: light dark;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Glassmorphism surfaces */
+  .glass {
+    @apply border backdrop-blur-xl;
+    background-color: oklch(var(--card) / 0.7);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 12px 32px -12px
+      rgb(59 91 219 / 0.18);
+  }
+
+  .glass-strong {
+    @apply border backdrop-blur-2xl;
+    background-color: oklch(var(--card) / 0.85);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 20px 48px -16px
+      rgb(59 91 219 / 0.28);
+  }
+
+  .glass-subtle {
+    @apply border backdrop-blur-md;
+    background-color: oklch(var(--card) / 0.5);
+  }
+
+  /* Brand gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      120deg,
+      oklch(0.55 0.2 258),
+      oklch(0.55 0.22 296)
+    );
+  }
+
+  .bg-brand-gradient {
+    background-image: linear-gradient(
+      135deg,
+      oklch(0.55 0.2 258),
+      oklch(0.55 0.22 296)
+    );
+  }
+
+  .bg-hero-glow {
+    background-image: radial-gradient(
+        60% 60% at 20% 20%,
+        oklch(0.55 0.2 258 / 0.18),
+        transparent 60%
+      ),
+      radial-gradient(
+        50% 50% at 80% 30%,
+        oklch(0.55 0.22 296 / 0.16),
+        transparent 60%
+      );
+  }
+}

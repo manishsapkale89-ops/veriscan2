@@ -1,0 +1,19 @@
+{
+  "overview": "VeriScan is a polished frontend prototype for an AI-powered identity and document screening platform, with a landing page, dashboard, upload flow, verification results, reports, and settings.",
+  "features": [
+    "Landing page with hero, features, how-it-works, CTA, and footer",
+    "Dashboard with statistics cards, recent documents, and sidebar navigation",
+    "Drag-and-drop upload flow with fake progress animation and file preview",
+    "Verification result page with status, confidence score, extracted info, and AI analysis cards",
+    "Reports page with searchable and filterable verification table",
+    "Settings page with profile, theme toggle, and notification settings"
+  ],
+  "category": "showcase",
+  "tags": [
+    "document-screening",
+    "identity-verification",
+    "prototype",
+    "dashboard"
+  ],
+  "last_updated": "2026-09-04T21:05:00.316Z"
+}
